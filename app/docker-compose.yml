@@ -3,13 +3,14 @@ version: "3"
 services:
 
   backend:
+    working_dir: /root/app
     build:
       context: ./docker/backend/
     ports:
       - "5000:5000"
     volumes:
-      - ./backend/:/app
+      - ./backend/:/root/app
     restart: always
     tty: true
     stdin_open: true
-    command: sleep infinity
+    command: python api.py
