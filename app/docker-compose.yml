@@ -13,4 +13,4 @@ services:
     restart: always
     tty: true
     stdin_open: true
-    command: python api.py
+    command: python3 api.py
