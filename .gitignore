@@ -1,3 +1,4 @@
 venv/
 model/
 gemma-2-baku-2b-it-Q8_0_Modelfile
+__pycache__/
