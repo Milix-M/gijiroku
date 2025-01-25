@@ -5,7 +5,7 @@ services:
   backend:
     working_dir: /root/app
     build:
-      context: ./docker/backend/
+      context: ./.docker/backend/
     ports:
       - "5000:5000"
     volumes:
