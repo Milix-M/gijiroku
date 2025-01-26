@@ -1,4 +1,4 @@
-FROM node:18.17.1-alpine
+FROM node:22.13.1-bookworm-slim
 
 WORKDIR /root/app
 
@@ -12,17 +12,12 @@ RUN \
     else echo "Warning: Lockfile not found. It is recommended to commit lockfiles to version control." && yarn install; \
     fi
 
-# Next.js collects completely anonymous telemetry data about general usage. Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line to disable telemetry at run time
-ENV NEXT_TELEMETRY_DISABLED 1
 
-# Note: Don't expose ports here, Compose will handle that for us
-
-# Start Next.js in development mode based on the preferred package manager
 RUN npm install
+
 CMD \
     if [ -f yarn.lock ]; then yarn dev; \
-    elif [ -f package-lock.json ]; then npm run dev; \
+    elif [ -f package-lock.json ]; then npm run dev --host; \
     elif [ -f pnpm-lock.yaml ]; then pnpm dev; \
     else yarn dev; \
     fi
