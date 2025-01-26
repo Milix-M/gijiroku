@@ -2,7 +2,7 @@ FROM debian:bookworm-20250113-slim
 
 RUN apt-get update && apt-get upgrade -y \
     && apt-get install -y python3 python3-pip git \
-    && apt-get -y install pciutils ffmpeg
+    && apt-get -y install pciutils ffmpeg curl
 
 RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124 --break-system-packages \
     && pip install nvidia-cublas-cu12 nvidia-cudnn-cu12==9.* --break-system-packages \
