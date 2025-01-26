@@ -1,6 +1,7 @@
 services:
 
   backend:
+    container_name: backend
     working_dir: /root/app
     build:
       context: ./backend
@@ -13,6 +14,7 @@ services:
     stdin_open: true
     command: python3 api.py
   frontend:
+    container_name: frontend
     build:
       context: ./frontend
     ports:
