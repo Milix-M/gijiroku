@@ -2,6 +2,7 @@ import os
 from flask import Flask, request
 from lib.ai.llm import gemma
 from lib.ai.stt import whisper
+from util.converter import convert_mp4_to_mp3
 
 app = Flask(__name__, instance_relative_config=True)
 
@@ -19,8 +20,11 @@ def generate_minutes():
     file_path = os.path.join("tmp", file_name)
     file.save(file_path)
 
+    mp3_path = os.path.join("tmp", "example.mp3")
+    convert_mp4_to_mp3(file_path, mp3_path)
+
     # 会議を文字起こし
-    meeting_text = whisper.speak_to_text(file_path)
+    meeting_text = whisper.speak_to_text(mp3_path)
     print(meeting_text)
 
     # 議事録を生成
