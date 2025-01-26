@@ -1,7 +1,7 @@
 FROM debian:bookworm-20250113-slim
 
 RUN apt-get update && apt-get upgrade -y \
-    && apt-get install -y python3 python3-pip \
+    && apt-get install -y python3 python3-pip git \
     && apt-get -y install pciutils
 
 RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124 --break-system-packages \
