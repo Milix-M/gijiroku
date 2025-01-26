@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import { TopMenu } from "../topmenu/welcome";
+import { TopMenu } from "../topmenu/top";
 
 export function meta({ }: Route.MetaArgs) {
   return [
