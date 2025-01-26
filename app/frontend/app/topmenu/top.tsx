@@ -8,8 +8,8 @@ export function TopMenu() {
       setStatus("処理しています...")
       fetch('http://localhost:5000/generate-minutes', { method: 'POST', body: file })
         .then(res => {
-          res.text().then(text => {
-            setMinutes(text)
+          res.json().then(json => {
+            setMinutes(json["minutes"])
           })
           setStatus("処理完了")
         })
